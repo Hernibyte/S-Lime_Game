@@ -1,0 +1,12 @@
+Art style:
+        2D Pixel Art. 
+        Side Scroller.
+
+Mechanics:
+        Desplazamiento lateral.
+        Salto hacia los lados, el jugador solo puede modificar la fuerza de impulso y la direccion del salto.
+        Los enemigos pueden ser asesinados cuando se les cae en la cabeza.
+        Los enemigos causan damage al jugador cuando lo tocan desde los costados.
+        Puede existir un enemigo con un ataque a distancia (a definir).
+        Los enemigos moriran normalmente con solo un salto en la cabeza pero pueden existir excepciones (a definir).
+        El jugador podra pegarse a la pared y saltar o desplazarse desde la misma (a definir).
