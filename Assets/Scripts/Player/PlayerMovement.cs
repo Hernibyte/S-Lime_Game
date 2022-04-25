@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] LayerMask lm_Terrain;
     [SerializeField] List<Transform> pivots;
+    [SerializeField] SpriteRenderer playerBody;
 
     PlayerStats stats;
     Rigidbody2D rig2D;
@@ -60,12 +61,20 @@ public class PlayerMovement : MonoBehaviour
                 x = 0;
 
         if (x > 0)
+        {
             moveDirection = Direction.Right;
+            playerBody.flipX = false;
+        }
         if (x < 0)
+        {
             moveDirection = Direction.Left;
+            playerBody.flipX = true;
+        }
 
         if (isGrounded && isMoving)
-            transform.position += new Vector3(x, 0, 0);
+        {
+            rig2D.AddForce(new Vector2(x, 0), ForceMode2D.Impulse);
+        }
     }
 
     void Jump()

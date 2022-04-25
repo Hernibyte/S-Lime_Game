@@ -10,7 +10,7 @@ public class EnemyBehaviour : MonoBehaviour
         float myDif = transform.position.y + 0.06f;
 
         if (colDif < myDif)
-            Destroy(collision.gameObject);
+            collision.gameObject.SetActive(false);
         else
             Destroy(gameObject);
     }
