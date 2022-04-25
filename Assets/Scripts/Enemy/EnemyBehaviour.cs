@@ -6,8 +6,8 @@ public class EnemyBehaviour : MonoBehaviour
 {
     void OnCollisionEnter2D(Collision2D collision)
     {
-        float colDif = collision.transform.position.y - 0.05f;
-        float myDif = transform.position.y + 0.05f;
+        float colDif = collision.transform.position.y - 0.06f;
+        float myDif = transform.position.y + 0.06f;
 
         if (colDif < myDif)
             Destroy(collision.gameObject);
