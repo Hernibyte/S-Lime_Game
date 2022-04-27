@@ -18,8 +18,8 @@ public class PlayerMovement : MonoBehaviour
     Rigidbody2D rig2D;
     BoxCollider2D boxCollider2D;
     Direction moveDirection = Direction.Right;
-    bool isGrounded = false;
-    bool isMoving = true;
+    public bool isGrounded = false;
+    public bool isMoving = true;
     float jumpForceCharge;
 
 
@@ -36,17 +36,24 @@ public class PlayerMovement : MonoBehaviour
         Jump();
     }
 
+    void OnDrawGizmos()
+    {
+        Gizmos.DrawCube(transform.position + new Vector3(0, -1.8f, 0), new Vector3(3.5f, 1f, 0.5f));
+        Gizmos.DrawCube(transform.position + new Vector3(1.8f, 0, 0), new Vector3(0.5f, 3.2f, 0.5f));
+        Gizmos.DrawCube(transform.position + new Vector3(-1.8f, 0, 0), new Vector3(0.5f, 3.2f, 0.5f));
+    }
+
     void Move()
     {
         Collider2D coll1 = Physics2D.OverlapBox(
-            transform.position + new Vector3(-0.06f, 0, 0),
-            new Vector2(0.02f, 0.12f), 
+            transform.position + new Vector3(-1.8f, 0, 0),
+            new Vector2(0.5f, 3.2f), 
             0, 
             lm_Terrain
         );
         Collider2D coll2 = Physics2D.OverlapBox(
-            transform.position + new Vector3(0.06f, 0, 0), 
-            new Vector2(0.02f, 0.12f), 
+            transform.position + new Vector3(1.8f, 0, 0), 
+            new Vector2(0.5f, 3.2f), 
             0, 
             lm_Terrain
         );
@@ -80,8 +87,8 @@ public class PlayerMovement : MonoBehaviour
     void Jump()
     {
         Collider2D coll1 = Physics2D.OverlapBox(
-            transform.position + new Vector3(0, -0.07f, 0),
-            new Vector2(0.14f, 0.02f),
+            transform.position + new Vector3(0, -1.8f, 0),
+            new Vector2(3.5f, 1f),
             0,
             lm_Terrain
         );
