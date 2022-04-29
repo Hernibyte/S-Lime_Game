@@ -562,6 +562,7 @@ GameObject:
   - component: {fileID: 1209061990}
   - component: {fileID: 1209061993}
   - component: {fileID: 1209061992}
+  - component: {fileID: 1209061994}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -652,9 +653,12 @@ MonoBehaviour:
   - {fileID: 264192441}
   - {fileID: 1243931732}
   - {fileID: 1975088831}
-  playerBody: {fileID: 1090826369}
-  isGrounded: 0
-  isMoving: 1
+  e_LeftMove:
+    m_PersistentCalls:
+      m_Calls: []
+  e_RightMove:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &1209061993
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -669,6 +673,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   velocity: 60
   jumpForce: 30
+--- !u!114 &1209061994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1209061988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3afe2f7dfd995704e8591b47a2cee115, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprite_Player: {fileID: 1090826369}
 --- !u!1 &1209750576
 GameObject:
   m_ObjectHideFlags: 0

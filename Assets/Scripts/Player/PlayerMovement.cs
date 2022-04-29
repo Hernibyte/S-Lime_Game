@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public enum Direction 
 {
@@ -12,14 +13,16 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] LayerMask lm_Terrain;
     [SerializeField] List<Transform> pivots;
-    [SerializeField] SpriteRenderer playerBody;
+
+    [HideInInspector] public UnityEvent e_LeftMove = new UnityEvent();
+    [HideInInspector] public UnityEvent e_RightMove = new UnityEvent();
 
     PlayerStats stats;
     Rigidbody2D rig2D;
     BoxCollider2D boxCollider2D;
     Direction moveDirection = Direction.Right;
-    public bool isGrounded = false;
-    public bool isMoving = true;
+    bool isGrounded = false;
+    bool isMoving = true;
     float jumpForceCharge;
 
 
@@ -70,12 +73,12 @@ public class PlayerMovement : MonoBehaviour
         if (x > 0)
         {
             moveDirection = Direction.Right;
-            playerBody.flipX = false;
+            e_RightMove.Invoke();
         }
         if (x < 0)
         {
             moveDirection = Direction.Left;
-            playerBody.flipX = true;
+            e_LeftMove.Invoke();
         }
 
         if (isGrounded && isMoving)
