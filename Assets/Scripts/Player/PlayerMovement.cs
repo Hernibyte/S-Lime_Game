@@ -35,8 +35,12 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        Move();
         Jump();
+    }
+
+    void FixedUpdate()
+    {
+        Move();
     }
 
     void OnDrawGizmos()
@@ -61,7 +65,7 @@ public class PlayerMovement : MonoBehaviour
             lm_Terrain
         );
 
-        float x = Input.GetAxis("Horizontal") * stats.velocity * Time.deltaTime;
+        float x = Input.GetAxis("Horizontal") * stats.velocity;
 
         if (coll1)
             if (x < 0)
