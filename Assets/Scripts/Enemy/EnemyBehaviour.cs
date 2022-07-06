@@ -6,12 +6,9 @@ public class EnemyBehaviour : MonoBehaviour
 {
     void OnCollisionEnter2D(Collision2D collision)
     {
-        float colDif = collision.transform.position.y - 0.06f;
-        float myDif = transform.position.y + 0.06f;
-
-        if (colDif < myDif)
-            collision.gameObject.SetActive(false);
-        else
+        if (collision.GetContact(0).normal == Vector2.down)
             Destroy(gameObject);
+        else
+            collision.gameObject.SetActive(false);
     }
 }

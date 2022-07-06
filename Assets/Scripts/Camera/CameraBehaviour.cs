@@ -4,10 +4,14 @@ using UnityEngine;
 
 public class CameraBehaviour : MonoBehaviour
 {
-    [SerializeField] Transform player;
+    [SerializeField] 
+    Transform player;
+
+    [SerializeField]
+    float offset;
 
     void Update()
     {
-        transform.position = new Vector3(player.position.x, player.position.y, transform.position.z);
+        transform.position = new Vector3(player.position.x, player.position.y + offset, transform.position.z);
     }
 }

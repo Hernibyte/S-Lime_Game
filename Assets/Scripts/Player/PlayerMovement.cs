@@ -14,8 +14,10 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] LayerMask lm_Terrain;
     [SerializeField] List<Transform> pivots;
 
-    [HideInInspector] public UnityEvent e_LeftMove = new UnityEvent();
-    [HideInInspector] public UnityEvent e_RightMove = new UnityEvent();
+    [HideInInspector] 
+    public UnityEvent e_LeftMove = new UnityEvent();
+    [HideInInspector] 
+    public UnityEvent e_RightMove = new UnityEvent();
 
     PlayerStats stats;
     Rigidbody2D rig2D;
